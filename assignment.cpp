@@ -19,7 +19,25 @@ int LinearIndx(int i, int j, int size){
 	return maxIndx(i) - (i-j);
 }
 
+int InverseIndx(int I, int size){
+	int row = 0;
+	int column = I;
+	while (row < column){
+		column -=row;
+		row++;
+	}
+	row--;
+
+	cout << row << "," << column <<endl;
+
+	return row,column;
+}
+
+
+//main function
 int main(){
+	//cout<< InverseIndx(3,3)<< endl;
+	cout<<InverseIndx(11,8)<< endl;
 	cout <<LinearIndx(0,0,8) <<endl;
 	cout << LinearIndx(4,3,8) <<endl;
 }
