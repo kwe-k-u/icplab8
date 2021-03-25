@@ -37,7 +37,7 @@ for (int row = 0; row < size; row++){
 void display2array(int size){
 	for (int row = 0; row <size; row++){
 		for (int column = 0; column < size; column++){
-		cout << twoDimArray[row][column];
+		cout << twoDimArray[row][column] << " ";
 		}
 		cout << endl; // move to next line
 	}
@@ -45,15 +45,24 @@ void display2array(int size){
 
 
 
-//function to determine a 1d array's cell corresponding index in a 2d triangular array
-void InverseIndex(int index, int row, int column){
+//function to 1d index in a 2d triangular array
+void InverseIndex(int index, int row, int column){//column and int are temporary
 
 	while (row <= column){
 		column -= row;
-		row ++;
+		row ++; //todo return row and column
 	}
 
 }
+
+
+//function to turn the 2d index into a 1d index
+int LinearIndex(int i, int j){
+	int index = consecutiveSum(i) - (i -j);//return index
+	return index;
+}
+
+
 
 //function to turn a 2d triangualr array into a 1d array
 void make1dim(int size){
@@ -61,19 +70,29 @@ void make1dim(int size){
 	for(int index = 0; index <size; index++){
 		int row = 0;
 		int column = index;
-		 InverseIndex(index, row, column);
-		oneDimArray[index] = twoDimArray[row][column];
+		  int newIndex =LinearIndex(row, column);
+		oneDimArray[newIndex] = twoDimArray[row][column];
 	}
 }
+
+
 
 
 //function to display elements in a 1d array
 void display1array(int size){
 	for (int i = 0; i < consecutiveSum(size); i++){
-		cout << oneDimArray[i];
+		cout << oneDimArray[i] << " ";
 	}
 }
 
+
+
+//function to convert 1d array into 2d triangular array
+void make2dim(int size){
+	for (int i = 0; i < consecutiveSum(size); i++){
+
+	}
+}
 
 
 
@@ -89,7 +108,8 @@ int main(){
 	display2array(128);
 	make1dim(128);
 	display1array(128);
-
+	make2dim(128);
+	display2array(128);
 
 	return 0;
 }
