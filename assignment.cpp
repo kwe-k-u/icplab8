@@ -37,7 +37,7 @@ for (int row = 0; row < size; row++){
 void display2array(int size){
 	for (int row = 0; row <size; row++){
 		for (int column = 0; column < size; column++){
-		cout << 2;
+		cout << twoDimArray[row][column];
 		}
 		cout << endl; // move to next line
 	}
